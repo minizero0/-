@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h2>고객수정</h2>
+<hr>
+<form action="/market/save" method="post">
+    고객번호 : <span th:text="${c.market_id}"></span>
+    <input type="hidden" name="market_id" th:value="${c.market_id}"><br>
+    고객이름 : <input type="text" name="market_name" th:value="${c.market_name}"><br>
+    전화번호 : <input type="tel" name="market_number" th:value="${c.market_number}"><br>
+    <input type="submit" value="수정">
+    <input type="reset" value="다시입력">
+</form>
+</body>
+</html>

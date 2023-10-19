@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".delete").click(function(event){
+                if(!confirm('정말로 삭제할까요?')){
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>학생목록</h2>
+<hr>
+<a href="/student/insert">학생등록</a>
+<br>
+<table border="1" width="80%">
+    <tr>
+        <td>학번</td>
+        <td>이름</td>
+        <td>나이</td>
+    </tr>
+
+    <tr	th:each="b:${list}">
+        <td th:text="${b.studentCode}"></td>
+        <td th:text="${b.studentName}"></td>
+        <td th:text="${b.age}"></td>
+        <td>
+            <a th:href="@{'/student/update/'+${b.studentCode}}" th:text="수정"></a>
+            <a class="delete" th:href="@{'/student/delete/'+${b.studentCode}}" th:text="삭제"></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
