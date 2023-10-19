@@ -1,2 +1,4 @@
-package bookpra.bookcon.service;public class BoardService {
+package bookpra.bookcon.service;
+
+public class BoardService {
 }
