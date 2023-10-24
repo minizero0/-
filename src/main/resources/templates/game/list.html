@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".delete").click(function(event){
+                if(!confirm('정말로 삭제할까요?')){
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>상점목록</h2>
+<hr>
+<a href="/game/insert">등록</a>
+<br>
+<table border="1" width="80%">
+    <tr>
+        <td>게임코드</td>
+        <td>게임이름</td>
+        <td>게임종류</td>
+    </tr>
+    <tr th:each="c:${list}">
+        <td th:text="${c.game_code}"></td>
+        <td th:text="${c.game_name}"></td>
+        <td th:text="${c.game_cate}"></td>
+        <td>
+            <a th:href="@{'/game/update/'+${c.game_code}}"  th:text="수정"></a>
+            <a class="delete" th:href="@{'/game/delete/'+${c.game_code}}"  th:text="삭제"></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
