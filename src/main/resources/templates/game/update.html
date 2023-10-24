@@ -9,7 +9,7 @@
 <h2>게수정</h2>
 <hr>
 <form action="/game/save" method="post">
-    게임코 : <span th:text="${c.gmae_code}"></span>
+    게임코 : <span th:text="${c.game_code}"></span>
     <input type="hidden" name="game_code" th:value="${c.game_code}"><br>
     게임이름 : <input type="text" name="game_name" th:value="${c.game_name}"><br>
     게임종류 : <input type="text" name="game_cate" th:value="${c.game_cate}"><br>
