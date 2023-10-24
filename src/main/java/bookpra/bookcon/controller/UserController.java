@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+
 @Controller
 @AllArgsConstructor
-public class SingUpController {
+public class UserController {
     private UserService us;
 
     @GetMapping("/main/signUp")
@@ -22,4 +24,19 @@ public class SingUpController {
         ModelAndView mav = new ModelAndView("redirect:/");
         return mav;
     }
+
+    @GetMapping("/main/login")
+    public void login() {
+    }
+
+    @PostMapping("/main/login")
+    public ModelAndView login_f(String user_id, String user_pw) {
+        ModelAndView mav;
+        int answer = us.login(user_id, user_pw);
+        if (answer == 1) mav = new ModelAndView("redirect:/book/list");
+        else mav = new ModelAndView("redirect:/main/login");
+        return mav;
+    }
+
+
 }

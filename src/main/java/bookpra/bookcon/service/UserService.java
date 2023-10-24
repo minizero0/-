@@ -5,6 +5,8 @@ import bookpra.bookcon.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service
 @AllArgsConstructor
 public class UserService {
@@ -13,5 +15,15 @@ public class UserService {
 
     public void signUp(User user) {
         dao.save(user);
+    }
+
+    public int login(String user_id, String user_pw) {
+        try {
+            dao.login(user_id, user_pw);
+            return 1;
+        } catch (Exception e) {
+            System.out.println("실패");
+            return 0;
+        }
     }
 }
