@@ -27,7 +27,8 @@ public class UserController {
     }
 
     @GetMapping("/main/login")
-    public void login() {
+    public void login(HttpSession session) {
+        System.out.println(session.getAttribute("login_user"));
     }
 
     @PostMapping("/main/login")

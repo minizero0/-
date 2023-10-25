@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
 </head>
 <body>
+<span th:if="${session.login_user != null}" th:text="${session.login_user.user_name} + 님 환영합니다">환영합니다</span>
 <h2>Login</h2>
 <hr>
 
