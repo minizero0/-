@@ -26,4 +26,8 @@ public class UserService {
             return 0;
         }
     }
+
+    public User findById(String user_id) {
+        return dao.findById(user_id).get();
+    }
 }
